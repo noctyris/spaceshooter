@@ -1,4 +1,4 @@
-FILES := main.c
+FILES := main.c shared.c ui.c
 EXEC := spaceshooter
 
 CC	= gcc
