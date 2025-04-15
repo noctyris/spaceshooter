@@ -11,8 +11,8 @@ int main() {
 
     int running = 1;
     Coordinate pos = {0, HEIGHT/2};
-    float angle = 0;
-    float vX = -(WIDTH/2 - 7.5)*log(0.99) + 0.01, vY = 0;
+    double angle = 0;
+    double vX = -(WIDTH/2 - 7.5)*log(0.99) + 0.01, vY = 0;
     float momentum = 0;
     
     Coordinate history[HISTORY_SIZE];
