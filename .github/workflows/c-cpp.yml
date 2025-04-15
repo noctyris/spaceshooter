@@ -30,6 +30,11 @@ jobs:
       - name: Install SDL2 libraries
         run: ${{ matrix.sdl-install }}
 
+      # Step 2.1: Verify SDL2 installation
+      - name: Verify SDL2 installation
+        run: |
+          ls /usr/include/SDL2 || dir C:\\SDL2 || brew list sdl2
+
       # Step 3: Compile the program
       - name: Compile
         run: make
