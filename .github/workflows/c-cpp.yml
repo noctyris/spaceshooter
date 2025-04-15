@@ -25,3 +25,10 @@ jobs:
     # Step 3: Compile the program
     - name: Compile
       run: make
+    
+    # Step 4: Upload the binary
+    - name: Upload artifact
+      uses: actions/upload-artifact@v3
+      with:
+        name: spaceshooter
+        path: spaceshooter
