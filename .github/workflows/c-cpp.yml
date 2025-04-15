@@ -25,7 +25,3 @@ jobs:
     # Step 3: Compile the program
     - name: Compile
       run: make
-
-    # Step 4: Run the program
-    - name: Run
-      run: make run
