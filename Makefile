@@ -16,7 +16,6 @@ $(EXEC): $(FILES)
 
 # Run the program
 run: $(EXEC)
-	@clear -x
 	@./$(EXEC)
 
 # Clean up the build artifacts
