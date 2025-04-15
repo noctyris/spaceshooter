@@ -8,8 +8,8 @@
 #include <math.h>
 
 typedef struct {
-    float x;
-    float y;
+    double x;
+    double y;
 } Coordinate;
 
 typedef struct {
