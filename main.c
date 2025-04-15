@@ -1,17 +1,18 @@
 #include "ui.c"
 
-#define MAX_SPEED 4
+#define MAX_SPEED 5
 #define MAX_MOMENTUM 0.02
-#define HISTORY_SIZE 20
+#define HISTORY_SIZE 50
 #define EDGE_THRESHOLD 100
 
 int main() {
     init();
 
+
     int running = 1;
-    Coordinate pos = {0, 300};
+    Coordinate pos = {0, HEIGHT/2};
     float angle = 0;
-    float vX = 3, vY = 0;
+    float vX = -(WIDTH/2 - 7.5)*log(0.99) + 0.01, vY = 0;
     float momentum = 0;
     
     Coordinate history[HISTORY_SIZE];
