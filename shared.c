@@ -1,6 +1,6 @@
 #define PI 3.14159265358979323846
-#define WIDTH 800
-#define HEIGHT 600
+#define WIDTH 960
+#define HEIGHT 540
 
 #include <SDL2/SDL.h>
 #include "SDL2/SDL2_gfxPrimitives.h"
@@ -30,10 +30,10 @@ int init() {
 
     // Création d'une fenêtre
     window = SDL_CreateWindow(
-        "Game",
+        "Spaceshooter",
         SDL_WINDOWPOS_CENTERED,
         SDL_WINDOWPOS_CENTERED,
-        800, 600,
+        WIDTH, HEIGHT,
         SDL_WINDOW_SHOWN
     );
 
