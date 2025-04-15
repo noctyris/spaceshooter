@@ -1,6 +1,6 @@
 #include "ui.c"
 
-#define MAX_SPEED 5
+#define MAX_SPEED 4
 #define MAX_MOMENTUM 0.02
 #define HISTORY_SIZE 50
 #define EDGE_THRESHOLD 100
