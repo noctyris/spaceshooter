@@ -12,5 +12,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+    - name: Compile
+      run: make compile
     - name: Run
       run: make run
