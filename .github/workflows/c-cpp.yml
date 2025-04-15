@@ -13,6 +13,6 @@ jobs:
 
     steps:
     - name: Compile
-      run: make compile
+      run: make
     - name: Run
       run: make run
