@@ -16,8 +16,6 @@ jobs:
           # Additional configuration for each OS
           - os: ubuntu-latest
             sdl-install: "sudo apt-get update && sudo apt-get install -y libsdl2-dev libsdl2-ttf-dev libsdl2-gfx-dev"
-          - os: macos-latest
-            sdl-install: "brew install sdl2 sdl2_ttf sdl2_gfx"
           - os: windows-latest
             sdl-install: "choco install sdl2 sdl2_ttf sdl2_gfx"
 
@@ -33,7 +31,7 @@ jobs:
       # Step 2.1: Verify SDL2 installation
       - name: Verify SDL2 installation
         run: |
-          ls /usr/include/SDL2 || dir C:\\SDL2 || brew list sdl2
+          ls /usr/include/SDL2 || dir C:\\SDL2
 
       # Step 3: Compile the program
       - name: Compile
