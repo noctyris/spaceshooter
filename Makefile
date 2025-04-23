@@ -4,7 +4,7 @@ EXEC := spaceshooter
 
 CC      := gcc
 CFLAGS  := -Wall -Wextra -std=c99
-LDFLAGS := -lSDL2 -lm
+LDFLAGS := -lSDL2 -lSDL2_gfx -lm
 
 # Default target
 all: $(EXEC)
