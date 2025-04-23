@@ -19,15 +19,15 @@ jobs:
       - name: Install SDL2 libraries
         run: |
           sudo apt-get update
-          sudo apt-get install -y libsdl2-dev libsdl2-ttf-dev libsdl2-gfx-dev
+          sudo apt-get install -y libsdl2-dev
 
       # Step 3: Compile the program
       - name: Compile
         run: make
 
       # Step 4: Upload the compiled binary
-      - name: Upload artifact
-        uses: actions/upload-artifact@v4
-        with:
-          name: spaceshooter-binary
-          path: spaceshooter
+     # - name: Upload artifact
+     #   uses: actions/upload-artifact@v4
+      #  with:
+     #     name: spaceshooter-binary
+     #     path: spaceshooter
