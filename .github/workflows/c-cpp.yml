@@ -26,8 +26,8 @@ jobs:
         run: make
 
       # Step 4: Upload the compiled binary
-     # - name: Upload artifact
-     #   uses: actions/upload-artifact@v4
-      #  with:
-     #     name: spaceshooter-binary
-     #     path: spaceshooter
+      - name: Upload artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: spaceshooter-binary
+          path: spaceshooter
