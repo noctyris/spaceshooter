@@ -6,7 +6,7 @@ CFLAGS  := -Wall -Wextra -std=c99
 LDFLAGS := -lSDL2 -lSDL2_gfx -lm
 
 # Default target
-all: $(EXEC)
+all: build
 
 # Rule to build the executable
 build: $(FILES)
