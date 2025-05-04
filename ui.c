@@ -19,3 +19,8 @@ int drawPlayer(float angle, Coordinate pos) {
     filledPolygonRGBA(renderer, vx, vy, 4, 255, 255, 255, 255);
     return 0;
 }
+
+int drawBullet(float angle, Coordinate pos) {
+    SDL_RenderDrawLine(renderer, pos.x, pos.y, pos.x + cos(angle) * 20, pos.y + sin(angle) * 20);
+    return 0;
+}

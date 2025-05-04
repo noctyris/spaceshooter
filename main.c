@@ -14,6 +14,10 @@ int main() {
     double angle = 0;
     double vX = -(WIDTH/2 - 7.5)*log(0.99) + 0.01, vY = 0;
     double momentum = 0;
+
+    int shoot = 0;
+    Coordinate bullet_pos = {0, 0};
+    double bullet_angle = 0;
     
     Coordinate history[HISTORY_SIZE];
     int history_index = 0;
@@ -52,13 +56,43 @@ int main() {
         }
         if (fabs(vX) + fabs(vY) < 0.01) vX = 0, vY = 0;
 
+        if (keys[SDL_SCANCODE_SPACE] && !shoot) {
+            shoot = 1;
+            bullet_pos.x = pos.x;
+            bullet_pos.y = pos.y;
+            bullet_angle = angle;
+        }
+
         pos.x += vX;
         pos.y += vY;
+        if (shoot) {
+            bullet_pos.x += cos(bullet_angle) * 5;
+            bullet_pos.y += sin(bullet_angle) * 5;
+            if (bullet_pos.x < 0 || bullet_pos.x > WIDTH || bullet_pos.y < 0 || bullet_pos.y > HEIGHT) {
+                shoot = 0;
+            }
+        }
 
-        if (pos.x < 0) pos.x = WIDTH;
-        if (pos.x > WIDTH) pos.x = 0;
-        if (pos.y < 0) pos.y = HEIGHT;
-        if (pos.y > HEIGHT) pos.y = 0;
+        if (pos.x < 0) {
+            pos.x = 0;
+            vX *= -0.5;
+            angle = atan(vY / vX);
+        }
+        if (pos.x > WIDTH) {
+            pos.x = WIDTH;
+            vX *= -0.5;
+            angle = atan(vY / vX);
+        }
+        if (pos.y < 0) {
+            pos.y = 0;
+            vY *= -0.5;
+            angle = atan(vY / vX);
+        }
+        if (pos.y > HEIGHT) {
+            pos.y = HEIGHT;
+            vY *= -0.5;
+            angle = atan(vY / vX);
+        }
 
         history[history_index] = pos;
         history_index = (history_index + 1) % HISTORY_SIZE;
@@ -68,7 +102,7 @@ int main() {
         SDL_RenderClear(renderer);
 
         drawPlayer(angle, pos);
-
+        if (shoot) drawBullet(bullet_angle, bullet_pos);
 
         for (int i = 0; i < history_size - 1; i++) {
             int real_index_current = (history_index - 1 - i + HISTORY_SIZE) % HISTORY_SIZE;
